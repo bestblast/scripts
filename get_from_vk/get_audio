@@ -108,7 +108,7 @@ Parse() {
  song_urls=( `cat ${sys_temp}/vksearch.out | sed -n 's|<url>\(.*\)</url>|\1|p'|sed 's/^[ \t]*//' ` )
  song_artists=( `cat ${sys_temp}/vksearch.out | sed -n 's|<artist>\(.*\)</artist>|\1|p'|sed 's/^[ \t]*//' ` )
  song_titles=( `cat ${sys_temp}/vksearch.out | sed -n 's|<title>\(.*\)</title>|\1|p'|sed 's/^  //' ` )
- song_durations=( `cat ${sys_temp}/vksearch.out |sed -n 's|<duration>\(.*\)</duration>|\1|p'|sed 's/^[ \t]*//' ` )
+# song_durations=( `cat ${sys_temp}/vksearch.out |sed -n 's|<duration>\(.*\)</duration>|\1|p'|sed 's/^[ \t]*//' ` )
  song_counts=$(( ${#song_urls[@]} - 1 ))
  IFS=$OLD_IFS
 }
@@ -127,7 +127,7 @@ RemoveDoubles() {
  song_urls=( `cat ${sys_temp}/vksearch.parsed |sed -ne 's,.*<4>\([^<]*\)<5>.*,\1,p' ` )
  song_artists=( `cat ${sys_temp}/vksearch.parsed |sed -ne 's,.*<2>\([^<]*\)<3>.*,\1,p' ` )
  song_titles=( `cat ${sys_temp}/vksearch.parsed | sed -ne 's,.*<3>\([^<]*\)<4>.*,\1,p' ` )
- song_durations=( `cat ${sys_temp}/vksearch.parsed |sed -ne 's,.*<1>\([^<]*\)<2>.*,\1,p' ` )
+# song_durations=( `cat ${sys_temp}/vksearch.parsed |sed -ne 's,.*<1>\([^<]*\)<2>.*,\1,p' ` )
  song_counts=$(( ${#song_urls[@]} - 1 ))
  IFS=$OLD_IFS
  Info "В плейлисте осталось ${#song_urls[@]} треков."
